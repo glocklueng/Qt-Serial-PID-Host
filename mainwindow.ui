@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Qt串口上位机</string>
+   <string>Host海坊主</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QCustomPlot" name="customPlot" native="true">
@@ -23,6 +23,8 @@
       <height>320</height>
      </rect>
     </property>
+    <zorder></zorder>
+    <zorder>horizontalLayoutWidget</zorder>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
@@ -33,7 +35,7 @@
       <height>131</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,6">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
      <property name="leftMargin">
       <number>10</number>
      </property>
@@ -69,20 +71,31 @@
           <widget class="QComboBox" name="comboBox"/>
          </item>
          <item>
-          <widget class="QPushButton" name="button_filter">
-           <property name="text">
-            <string>检测</string>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <widget class="QPushButton" name="button_filter">
+             <property name="text">
+              <string>检测</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="button_switch">
+             <property name="text">
+              <string>开始/停止</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,12,1">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
+        <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,6,1,1">
          <item>
           <widget class="QLabel" name="label_pid_a">
            <property name="text">
@@ -91,27 +104,44 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_pid_b">
+          <widget class="QLineEdit" name="lineEdit_pid_a">
            <property name="text">
-            <string>PID-&gt;B</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_pid_c">
+          <widget class="QSlider" name="hSlider_pid_a">
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_min_a">
            <property name="text">
-            <string>PID-&gt;C</string>
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_max_a">
+           <property name="text">
+            <string>100</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout">
+        <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,1,6,1,1">
          <item>
-          <widget class="QLineEdit" name="lineEdit_pid_a">
+          <widget class="QLabel" name="label_pid_b">
            <property name="text">
-            <string>0</string>
+            <string>PID-&gt;B</string>
            </property>
           </widget>
          </item>
@@ -123,103 +153,70 @@
           </widget>
          </item>
          <item>
+          <widget class="QSlider" name="hSlider_pid_b">
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_min_b">
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_max_b">
+           <property name="text">
+            <string>100</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,1,6,1,1">
+         <item>
+          <widget class="QLabel" name="label_pid_c">
+           <property name="text">
+            <string>PID-&gt;C</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QLineEdit" name="lineEdit_pid_c">
            <property name="text">
             <string>0</string>
            </property>
           </widget>
          </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
-         <item>
-          <widget class="QSlider" name="hSlider_pid_a">
-           <property name="maximum">
-            <number>999</number>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSlider" name="hSlider_pid_b">
-           <property name="maximum">
-            <number>999</number>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
-         </item>
          <item>
           <widget class="QSlider" name="hSlider_pid_c">
            <property name="maximum">
-            <number>999</number>
+            <number>99</number>
            </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_8">
-             <item>
-              <widget class="QLineEdit" name="lineEdit_min_a">
-               <property name="text">
-                <string>0</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEdit_min_b">
-               <property name="text">
-                <string>0</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEdit_min_c">
-               <property name="text">
-                <string>0</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_7">
-             <item>
-              <widget class="QLineEdit" name="lineEdit_max_a">
-               <property name="text">
-                <string>100</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEdit_max_b">
-               <property name="text">
-                <string>100</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEdit_max_c">
-               <property name="text">
-                <string>100</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
+          <widget class="QLineEdit" name="lineEdit_min_c">
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_max_c">
+           <property name="text">
+            <string>100</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
